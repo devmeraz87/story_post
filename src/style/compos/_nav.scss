@@ -1,9 +1,18 @@
+@media only screen and (max-width: 724px) {
+    .mainNav {
+        box-shadow: 0 2px 0 0 rgba(221, 221, 221, 0.11) !important;
+    }
+} 
+
 .mainNav {
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 111111;
-    height: 64px;
     line-height: 64px;
-    box-shadow: 2px 5px 20px rgba(51, 51, 51, 0.185);
+    box-shadow: 0 1px 0 0 rgba(221, 221, 221, 0.11);
+    background-color: #333;
+
     .nav-components {
 
         // Width Screen Nav
@@ -35,92 +44,12 @@
                         .width-nav-li {
                             margin-left: 0.75rem;
                             padding: 0 0.75rem;
-
-                            .dropDownLink {
-                                position: relative;
+                            
+                            a {
+                                color: #ddd;
 
                                 &:hover {
-                                    .dropdownContainer {
-                                        display: block;
-                                    }
-                                }
-
-                                span {
-                                    cursor: pointer;
-                                }
-
-                                .dropdownContainer {
-                                    position: absolute;
-                                    top: 64px;
-                                    line-height: normal;
-                                    display: none;
-
-
-
-                                    .dropDown {
-                                        // display: none;
-                                        background-color: #fff;
-                                        box-shadow: 1px 1px 20px rgba(51, 51, 51, 0.096);
-                                        height: 100%;
-                                        width: 200px;
-
-                                        .dropdown-li {
-                                            position: relative;
-
-                                            &:hover {
-                                                background-color: aqua;
-                                                color: #fff;
-                                            }
-
-                                            a, > span {
-                                                padding: 0.75rem;
-                                                display: block;
-
-                                                &:hover {
-                                                    background-color: aqua;
-                                                    color: #fff;
-                                                }
-                                            }
-
-                                            &:first-child {
-                                                cursor: pointer;
-
-                                                &:hover {
-                                                    .subDropDownContainer {
-                                                        display: block;
-                                                    }
-                                                }
-                                            }
-
-                                            .subDropDownContainer {
-                                                position: absolute;
-                                                top: 0px;
-                                                left: 200px;
-                                                width: 150px;
-                                                display: none;
-                                                
-
-                                                .subDropDown {
-                                                    margin-top: 42px;
-                                                    margin-left: 2px;
-                                                    background-color: #fff;
-                                                    box-shadow: 1px 1px 20px rgba(51, 51, 51, 0.096);
-
-                                                    li {
-                                                        a {
-                                                          display: block;
-                                                          padding: 0.75rem;
-                                                            
-                                                          &:hover {
-                                                            color: #fff;  
-                                                            background-color: aqua;
-                                                          }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                                    color: #fff;
                                 }
                             }
                         }
@@ -143,6 +72,14 @@
                 
                 .brand-logo {
                     display: inline-block;
+
+                    img {
+                        height: 30px;
+                        width: 30px;
+                        border-radius: 4px;
+                        object-fit: cover;
+                        vertical-align: middle;
+                    }
                 }
 
                 .hamburger {
@@ -154,3 +91,58 @@
     }
 }
 
+
+.smNavLink {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.952);
+    color: #fff;
+    transform: translateX(-100%);
+    animation: smNavLink;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    
+
+    @keyframes smNavLink {
+        to {
+            transform: translateX(0%);
+        }
+    }
+
+    .sm-nav-ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 64px;
+        width: 100%;
+        padding: 1rem;
+
+        .sm-nav-li {
+            line-height: normal;
+            margin-bottom: 1.5rem;
+            width: 80%;
+            transition: 0.3s;
+
+            &:hover {
+                width: 100%;
+            }
+
+            a {
+                display: block;
+                padding: 0.75rem;
+                color: #ddd;
+                cursor: pointer;
+                border-radius: 3px;
+                background-color: #555;
+                transition: 0.3s;
+
+                &:hover {
+                    padding-left: 1.75rem;
+                    background-color: rgb(128, 64, 128);
+                }
+            }
+        }
+    }
+}

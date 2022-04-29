@@ -1,12 +1,27 @@
+.blog {
+    background-color: #444;
+    margin-top: 64px;
+
+    .blog-content {
+        padding: 0 0.75rem;
+    }
+
+    .blogs_container {
+        padding: 2rem 0;
+    }
+}
+
+
 .postContainer {
     max-width: 680px;
     margin: auto;
 
     .post {
         margin-bottom: 20px;
-        box-shadow: 2px 5px 20px rgba(51, 51, 51, 0.37);
+        box-shadow: 0 0 0 1px rgba(221, 221, 221, 0.089);
         border-radius: 3px;
         transition: 0.5s;
+        background-color: #333;
     }
 
     .post-header {
@@ -22,6 +37,8 @@
             .post-avatar {
 
                 .post-avatar-container {
+                    border: 2px solid #666;
+                    border-radius: 50%;
                     img {
                         height: 60px;
                         width: 60px;
@@ -43,14 +60,14 @@
                     span {
                         font-weight: bold;
                         cursor: pointer;
-                        color: #333;
+                        color: #ddd;
                     }
                 }
 
                 .post-date-container {
                     font-weight: normal;
                     font-size: 12px;
-                    color: #666;
+                    color: rgba(221, 221, 221, 0.247);
                 }
             }
         }
@@ -63,6 +80,7 @@
             
             .post-title {
                 margin-bottom: 0.1rem;
+                color: #ddd;
             }
 
             .post-context {
@@ -71,6 +89,7 @@
 
                 .displayed-text {
                     line-height: 1.5;
+                    color: #ddd;
                 }
 
                 .read-more-button {
@@ -87,7 +106,7 @@
 
     .post-image {
         background-color: rgba(0, 0, 0, 0.548);
-        width: 680px;
+        max-width: 680px;
         height: 680px;
 
 
@@ -106,6 +125,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            user-select: none;
 
 
             img {
@@ -113,6 +133,7 @@
                 width: 100%;
                 vertical-align: middle;
                 object-fit: cover;
+                user-select: none;
             }
         }
 
@@ -123,6 +144,49 @@
 
         .f {
             padding: 0.75rem 0;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 724px) {
+
+    .blog {
+       > .container {
+           width: 100% !important;
+
+            .blog-content {
+                padding: 0 !important;
+            }
+
+            .blogs_container {
+                padding: 1rem 0;
+            }
+        }
+    }
+
+    .postContainer {
+        width: 100% !important;
+        max-width: none;
+
+        .post {
+            box-shadow:  0 0 0 2px #666;
+            border-radius: 0 !important;
+
+            .post-image {
+                max-width: 100%;
+                height: 400px;
+            }
+        }
+
+    }
+
+    .FullImageModal {
+
+        img {
+            height: 50% !important;
+            width: 90% !important;
+            border: 3px solid #fff;
         }
     }
 }
@@ -147,7 +211,7 @@
         object-fit: contain;
         border-radius: 5px;
         box-shadow: 2px 5px 20px rgba(51, 51, 51, 0.233);
-        background-color: #fff;
+        background-color: #444;
         cursor: pointer;
     }
 

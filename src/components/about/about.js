@@ -1,8 +1,15 @@
+import { Link } from "react-router-dom";
+import notFoundImg from "../../img/404-hot-dog.png"
+
 const About = () => {
     return (
         <div className="About">
-            <h1>About</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, recusandae. Quis quam laboriosam, explicabo culpa aspernatur reiciendis incidunt quae libero!</p>
+            <div className="working-on-it">
+                <img src={notFoundImg} alt="Not found" />
+                <h1>Nothing to show Yet</h1>
+                <h4>We are working on it</h4>
+                <Link to={"/"}>Go Back to home</Link>
+            </div>
         </div>
     );
 }

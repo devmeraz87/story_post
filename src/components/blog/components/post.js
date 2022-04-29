@@ -117,7 +117,7 @@ const Post = () => {
                                             )}
                                             <div className="postF">
                                                 <div className="f">
-                                                    x
+                                                    💔 😔 💔
                                                 </div>
                                             </div>
                                         </div>
