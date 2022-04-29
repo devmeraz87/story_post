@@ -1,0 +1,104 @@
+.showcase-parallax {
+    height: calc(100vh - 210px);
+    background-size: cover !important;
+    background-attachment: fixed !important;
+
+
+
+    .parallax-overlay {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.301);
+            z-index: -1;
+        }
+    }
+
+    .showcase-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 0.75rem;
+        padding-top: 15%;
+
+        h1, p {
+            color: #fff;
+            margin-bottom: 1.75rem;
+        }
+
+        h1 {
+            font-size: 60px;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                &:first-child {
+                    margin-bottom: 0.5rem;
+
+                    span {
+                        color: rgb(114, 124, 255);
+                    }
+                }
+            }
+        }
+        p {
+            font-size: 18px;
+            line-height: 2;
+            width: 60%;
+        }
+
+        .read-more-btn {
+            height: 50px;
+            line-height: 50px;
+            padding: 0 30px;
+            background-color: rgb(114, 124, 255);
+            color: #fff;
+            font-size: 20px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                .right-arrow {
+                    width: 20px;
+                }
+            }
+
+            .right-arrow {
+                position: relative;
+                margin-left: 1rem;
+                display: inline-block;
+                width: 15px;
+                height: 2px;
+                background-color: #fff;
+                transition: 0.2s;
+
+                &::before, &::after {
+                    content: "";
+                    position: absolute;
+                    right: -1px;
+                    height: 2px;
+                    width: 10px;
+                    background-color: #fff;
+                }
+
+                &::before {
+                    top: -3px;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    top: 3px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}

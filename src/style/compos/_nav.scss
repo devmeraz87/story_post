@@ -1,0 +1,156 @@
+.mainNav {
+    position: relative;
+    z-index: 111111;
+    height: 64px;
+    line-height: 64px;
+    box-shadow: 2px 5px 20px rgba(51, 51, 51, 0.185);
+    .nav-components {
+
+        // Width Screen Nav
+        .width-nav {
+            .container {
+                .width-nav-content {
+                    padding: 0 0.75rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .brand-logo {
+                        margin-right: 0.75rem;
+
+                        img {
+                            height: 30px;
+                            width: 30px;
+                            border-radius: 4px;
+                            object-fit: cover;
+                            vertical-align: middle;
+                        }
+                    }
+
+
+                    .width-nav-ul {
+                        display: flex;
+
+                        .width-nav-li {
+                            margin-left: 0.75rem;
+                            padding: 0 0.75rem;
+
+                            .dropDownLink {
+                                position: relative;
+
+                                &:hover {
+                                    .dropdownContainer {
+                                        display: block;
+                                    }
+                                }
+
+                                span {
+                                    cursor: pointer;
+                                }
+
+                                .dropdownContainer {
+                                    position: absolute;
+                                    top: 64px;
+                                    line-height: normal;
+                                    display: none;
+
+
+
+                                    .dropDown {
+                                        // display: none;
+                                        background-color: #fff;
+                                        box-shadow: 1px 1px 20px rgba(51, 51, 51, 0.096);
+                                        height: 100%;
+                                        width: 200px;
+
+                                        .dropdown-li {
+                                            position: relative;
+
+                                            &:hover {
+                                                background-color: aqua;
+                                                color: #fff;
+                                            }
+
+                                            a, > span {
+                                                padding: 0.75rem;
+                                                display: block;
+
+                                                &:hover {
+                                                    background-color: aqua;
+                                                    color: #fff;
+                                                }
+                                            }
+
+                                            &:first-child {
+                                                cursor: pointer;
+
+                                                &:hover {
+                                                    .subDropDownContainer {
+                                                        display: block;
+                                                    }
+                                                }
+                                            }
+
+                                            .subDropDownContainer {
+                                                position: absolute;
+                                                top: 0px;
+                                                left: 200px;
+                                                width: 150px;
+                                                display: none;
+                                                
+
+                                                .subDropDown {
+                                                    margin-top: 42px;
+                                                    margin-left: 2px;
+                                                    background-color: #fff;
+                                                    box-shadow: 1px 1px 20px rgba(51, 51, 51, 0.096);
+
+                                                    li {
+                                                        a {
+                                                          display: block;
+                                                          padding: 0.75rem;
+                                                            
+                                                          &:hover {
+                                                            color: #fff;  
+                                                            background-color: aqua;
+                                                          }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }   
+            }
+        }
+
+        .smallNav {
+            height: 64px;
+            line-height: 64px;
+
+
+            .small-nav-content  {
+                height: 64px;
+                line-height: 64px;
+                padding: 0  0.75rem;
+                display: flex;
+                align-items: center;
+                
+                .brand-logo {
+                    display: inline-block;
+                }
+
+                .hamburger {
+                    display: inline-block;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}
+
