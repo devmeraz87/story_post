@@ -51,9 +51,7 @@ const Post = () => {
         <>
             {
                 posts.length  === 0 ? (
-                    <p className="noPost">No Post found <Link style={{
-                        color: "rgb(0, 81, 255)"
-                    }} to={"/create-new-post"}>Create Post...</Link></p>
+                    <p className="noPost">No Post found ! 😒</p>
                 ) : (
                     <div className="postContainer">
                         {modalImage && (

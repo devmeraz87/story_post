@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../img/M-logo.jpg"
-import Tanjila from "../../../img/Tanjila.png"
+import Tanjila from "../../../img/Tanjila.jpg"
 
 const SmallScreenNav = () => {
 

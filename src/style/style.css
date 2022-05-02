@@ -292,6 +292,11 @@ li {
   padding: 2rem 0;
 }
 
+.blog .noPost {
+  color: #ddd;
+  padding: 0 0.75rem;
+}
+
 .postContainer {
   max-width: 680px;
   margin: auto;
