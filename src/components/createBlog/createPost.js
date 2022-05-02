@@ -18,7 +18,7 @@ const CreatePost = () => {
     const [postImageFile, setPostImageFile] = useState("");
     const [profileImageBlob, setProfileImageBlob]  = useState(null);
     const [postImageBlob, setPostImageBlob] = useState(null);
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
     const profileImageChange = (e) => {
         const profileImageFile = e.target.files[0];
