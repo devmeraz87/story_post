@@ -5,6 +5,8 @@ import { db, storage } from "../config/firebaseConfig";
 import Compressor from "compressorjs";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const CreatePost = () => {
 
@@ -16,6 +18,7 @@ const CreatePost = () => {
     const [postImageFile, setPostImageFile] = useState("");
     const [profileImageBlob, setProfileImageBlob]  = useState(null);
     const [postImageBlob, setPostImageBlob] = useState(null);
+    const [showModal, setShowModal] = useState(true);
 
     const profileImageChange = (e) => {
         const profileImageFile = e.target.files[0];
@@ -39,12 +42,15 @@ const CreatePost = () => {
                 }
             });
         }
+
+        if(!profileImageFile) {
+            setPostImageFile(null);
+        }
     }
 
 
    const handlePostImageChange = (e) => {
        const postImageFile = e.target.files[0];
-       console.log(e.target.files[0]);
        const blob = URL.createObjectURL(postImageFile);
        setPostImageBlob(blob);
 
@@ -58,6 +64,10 @@ const CreatePost = () => {
                }
            })
        }
+
+       if(!postImageFile) {
+           setPostImageFile(null);
+       }
    }
 
     const onSubmit = async (data) => {
@@ -70,10 +80,13 @@ const CreatePost = () => {
         const uploadProfile = uploadBytesResumable(profileRef, profileImage);
         const uploadPostImage = uploadBytesResumable(postImageRef, postImage);
 
+        setShowModal(true);
+        
         uploadProfile.on("state_changed",  (snapshot) => {
             console.log(snapshot);
         }, (err) => {
-            console.log(err.message);
+            toast(err.message, {type: "error"});
+            setShowModal(false);
         }, () => {
             getDownloadURL(uploadProfile.snapshot.ref)
                 .then((url) => {
@@ -81,7 +94,8 @@ const CreatePost = () => {
                     uploadPostImage.on("state_changed", (snapshot) => {
                         console.log(snapshot);
                     }, (err) => {
-                        console.log(err.message);
+                        toast(err.message, {type: "error"});
+                        setShowModal(false);
                     }, () => {
                         getDownloadURL(uploadPostImage.snapshot.ref)
                             .then((url) => {
@@ -105,28 +119,39 @@ const CreatePost = () => {
 
                             })
                             .then(() => {
-                                console.log("Meraj");
+                                toast("Sucessfully posted", {type: "success"})
                             })
                             .catch(err => {
-                                console.log(err);
+                                toast(err.message, {type: "error"})
+                                setShowModal(false);
                             })
                             .finally(() => {
-                                history.push("/blog")
+                                history.push("/tanjila/posts")
                             })
                     })
                 })
                 .catch((err) => {
-                    console.log(err.message);
+                    toast(err.message, {type: "error"})
+                    setShowModal(false);
                 })
         })
     }
 
 
 
-
     return (
-        <>
+        <>  
+            <div>
+                {showModal && (
+                    <div className="Modal">
+                        <div className="Card">
+                            <h1>Creating your posts... || 😊😊</h1>
+                        </div>
+                    </div>
+                )}
+            </div>
             <div id="create-post">
+                <ToastContainer />
                 <div className="card">
                     <div className="card-content">
                         <span className="card-title">Create Post</span>

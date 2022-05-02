@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../img/M-logo.jpg"
+import Tanjila from "../../../img/Tanjila.png"
 
 const SmallScreenNav = () => {
 
@@ -18,14 +19,18 @@ const SmallScreenNav = () => {
     return (
         <>
             {smNavLink && (
-                <div className="smNavLink" onClick={()=> hideSmNavLink()}>
-                    <ul className="sm-nav-ul">
-                        <li className="sm-nav-li"><Link to={"/"}>Home</Link></li>
-                        <li className="sm-nav-li"><Link to={"/about"}>About</Link></li>
-                        <li className="sm-nav-li"><Link to={"/work"}>Work</Link></li>
-                        <li className="sm-nav-li"><Link to={"/tanjila/posts"}>Blog</Link></li>
-                        <li className="sm-nav-li"><Link to={"/contact"}>Contact</Link></li>
-                    </ul>
+                <div className="smNavLink" onClick={()=> hideSmNavLink()} style={{
+                    background: `url(${Tanjila}) no-repeat center`
+                }}>
+                    <div className="smNavLinkOverlay">
+                        <ul className="sm-nav-ul">
+                            <li className="sm-nav-li"><Link to={"/"}>Home</Link></li>
+                            <li className="sm-nav-li"><Link to={"/about"}>About</Link></li>
+                            <li className="sm-nav-li"><Link to={"/work"}>Work</Link></li>
+                            <li className="sm-nav-li"><Link to={"/tanjila/posts"}>Posts</Link></li>
+                            <li className="sm-nav-li"><Link to={"/contact"}>Contact</Link></li>
+                        </ul>
+                    </div>
                 </div>
             )}
             <div className="smallNav">

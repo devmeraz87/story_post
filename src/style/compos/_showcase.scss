@@ -102,3 +102,64 @@
         }
     }
 }
+
+@media only screen and(max-width: 724px) {
+    .showcase-content {
+        h1 {
+            font-size: 32px !important;
+        }
+
+        p {
+            font-size: 15px !important;
+            line-height: 1.4 !important;
+            width: 100% !important;
+        }
+
+        .read-more-btn {
+            height: 40px !important;
+            line-height: 40px;
+            padding: 0 30px;
+            background-color: rgb(114, 124, 255);
+            color: #fff;
+            font-size: 16px !important;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                .right-arrow {
+                    width: 20px;
+                }
+            }
+
+            .right-arrow {
+                position: relative;
+                margin-left: 1rem;
+                display: inline-block;
+                width: 15px;
+                height: 2px;
+                background-color: #fff;
+                transition: 0.2s;
+
+                &::before, &::after {
+                    content: "";
+                    position: absolute;
+                    right: -1px;
+                    height: 2px;
+                    width: 10px;
+                    background-color: #fff;
+                }
+
+                &::before {
+                    top: -3px;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    top: 3px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}

@@ -243,6 +243,42 @@ li {
   }
 }
 
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.397);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Modal .Card {
+  width: 80%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Modal .Card h1 {
+  color: #fff;
+}
+
 .blog {
   background-color: #444;
   margin-top: 64px;
@@ -585,6 +621,63 @@ li {
 }
 
 @media only screen and (max-width: 724px) {
+  .showcase-content h1 {
+    font-size: 32px !important;
+  }
+  .showcase-content p {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+  }
+  .showcase-content .read-more-btn {
+    height: 40px !important;
+    line-height: 40px;
+    padding: 0 30px;
+    background-color: #727cff;
+    color: #fff;
+    font-size: 16px !important;
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .showcase-content .read-more-btn:hover .right-arrow {
+    width: 20px;
+  }
+  .showcase-content .read-more-btn .right-arrow {
+    position: relative;
+    margin-left: 1rem;
+    display: inline-block;
+    width: 15px;
+    height: 2px;
+    background-color: #fff;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+  .showcase-content .read-more-btn .right-arrow::before, .showcase-content .read-more-btn .right-arrow::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    height: 2px;
+    width: 10px;
+    background-color: #fff;
+  }
+  .showcase-content .read-more-btn .right-arrow::before {
+    top: -3px;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .showcase-content .read-more-btn .right-arrow::after {
+    top: 3px;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+}
+
+@media only screen and (max-width: 724px) {
   .mainNav {
     -webkit-box-shadow: 0 2px 0 0 rgba(221, 221, 221, 0.11) !important;
             box-shadow: 0 2px 0 0 rgba(221, 221, 221, 0.11) !important;
@@ -718,6 +811,13 @@ li {
   }
 }
 
+.smNavLink .smNavLinkOverlay {
+  background: rgba(51, 51, 51, 0.767);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
 .smNavLink .sm-nav-ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -746,24 +846,24 @@ li {
 .smNavLink .sm-nav-ul .sm-nav-li a {
   display: block;
   padding: 0.75rem;
-  color: #ddd;
+  color: rgba(221, 221, 221, 0.74);
   cursor: pointer;
   border-radius: 3px;
-  background-color: #555;
+  background-color: rgba(85, 85, 85, 0.767);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .smNavLink .sm-nav-ul .sm-nav-li a:hover {
   padding-left: 1.75rem;
-  background-color: #804080;
+  background-color: rgba(128, 64, 128, 0.589);
 }
 
 .hamburger-btn {
   height: 35px;
   width: 38px;
   background-color: transparent;
-  padding: 0.2rem;
+  padding: 0.3rem;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -780,7 +880,7 @@ li {
 .hamburger-btn .btn-burger {
   pointer-events: none;
   position: relative;
-  height: 3px;
+  height: 2px;
   width: 100%;
   background-color: #ccc;
   border-radius: 3px;
@@ -789,18 +889,18 @@ li {
 .hamburger-btn .btn-burger::before, .hamburger-btn .btn-burger::after {
   content: "";
   position: absolute;
-  height: 3px;
+  height: 2px;
   width: 100%;
   background-color: #ccc;
   border-radius: 3px;
 }
 
 .hamburger-btn .btn-burger::before {
-  top: -10px;
+  top: -8px;
 }
 
 .hamburger-btn .btn-burger::after {
-  top: 10px;
+  top: 8px;
 }
 
 .btn {

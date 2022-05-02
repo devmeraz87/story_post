@@ -1,8 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import 'react-calendar/dist/Calendar.css';
-
-
 // components ?
 import Home from "./components/home/home"
 import Nav from "./components/nav/nav";

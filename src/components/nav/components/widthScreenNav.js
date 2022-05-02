@@ -18,7 +18,7 @@ const WidthScreenNav = () => {
                         <li className="width-nav-li"><Link to={"/"}>Home</Link></li>
                         <li className="width-nav-li"><Link to={"/about"}>About</Link></li>
                         <li className="width-nav-li"><Link to={"/work"}>Work</Link></li>
-                        <li className="width-nav-li"><Link to={"/tanjila/posts"}>Blog</Link></li>
+                        <li className="width-nav-li"><Link to={"/tanjila/posts"}>Posts</Link></li>
                         <li className="width-nav-li"><Link to={"/contact"}>Contact</Link></li>
                     </ul>
                 </div>

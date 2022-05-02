@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import "./style/style.css"
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-calendar/dist/Calendar.css';
+
 
 ReactDOM.render(
   <React.StrictMode>

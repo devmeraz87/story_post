@@ -2,7 +2,7 @@
     height: 35px;
     width: 38px;
     background-color: transparent;
-    padding: 0.2rem;
+    padding: 0.3rem;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
     .btn-burger {
         pointer-events: none;
         position: relative;
-        height: 3px;
+        height: 2px;
         width: 100%;
         background-color: #ccc;
         border-radius: 3px;
@@ -20,18 +20,18 @@
         &::before, &::after {
             content: "";
             position: absolute;
-            height: 3px;
+            height: 2px;
             width: 100%;
             background-color: #ccc;
             border-radius: 3px;
         }
 
         &::before {
-            top: -10px;
+            top: -8px;
         }
 
         &::after {
-            top: 10px;
+            top: 8px;
         }
     }
 }
