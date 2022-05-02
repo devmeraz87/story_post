@@ -31,7 +31,7 @@ const App = () => {
             <Route path={"/work"} exact>
               <Work /> 
             </Route>
-            <Route path={"/blog"} exact>
+            <Route path={"/tanjila/posts"} exact>
               <Blog /> 
             </Route>
             <Route path={"/create-new-post"}>
