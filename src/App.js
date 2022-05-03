@@ -8,6 +8,7 @@ import Blog from "./components/blog/blog";
 import CreatePost from "./components/createBlog/createPost";
 import Contact from "./components/contact/contact";
 import Work from "./components/work/work"
+import Message from "./components/message/message"
 import NotfundPage from "./components/404/404"
 
 const App = () => {
@@ -36,6 +37,9 @@ const App = () => {
             </Route>
             <Route path={"/contact"} exact>
               <Contact />
+            </Route>
+            <Route path={"/customers/messages"} exact>
+              <Message />
             </Route>
             <Route path={"/*"}>
               <NotfundPage />

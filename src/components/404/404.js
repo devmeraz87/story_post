@@ -3,7 +3,7 @@ import notFoundImg from "../../img/404-hot-dog.png"
 
 const NotfundPage = () => {
     return (
-        <div className="Contact">
+        <div className="_404">
             <div className="working-on-it">
                 <img src={notFoundImg} alt="Not found" />
                 <h1>Error _404_</h1>

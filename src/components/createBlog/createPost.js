@@ -71,7 +71,7 @@ const CreatePost = () => {
    }
 
     const onSubmit = async (data) => {
-        const {firstName, lastName, Title, textBody} = data;
+        const {firstName, lastName, Title, emoji, textBody} = data;
         const profileImage = profileImageFile;
         const postImage = postImageFile;
 
@@ -106,6 +106,7 @@ const CreatePost = () => {
                                     firstName,
                                     lastName,
                                     Title,
+                                    emoji,
                                     textBody,
                                     profileImageUrl,
                                     postImageUrl,
@@ -120,13 +121,11 @@ const CreatePost = () => {
                             })
                             .then(() => {
                                 toast("Sucessfully posted", {type: "success"})
+                                history.push("/tanjila/posts")
                             })
                             .catch(err => {
                                 toast(err.message, {type: "error"})
                                 setShowModal(false);
-                            })
-                            .finally(() => {
-                                history.push("/tanjila/posts")
                             })
                     })
                 })
@@ -182,8 +181,19 @@ const CreatePost = () => {
                                         <input type="text" name="Title" {...register("Title", {maxLength: {
                                             value: 100,
                                             message: "Max Title length is 100"
-                                        }})} className="form-control" placeholder="Title" />
+                                        }})} className="form-control" placeholder="Title.." />
                                         {errors.Title && (<p className="error">{errors.Title.message}</p>)}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <div className="form-group">
+                                        <input type="text" name="emoji" {...register("emoji", {required: "Emoji is required!", maxLength: {
+                                            value: 10,
+                                            message: "Max Emoji length is 10"
+                                        }})} className="form-control" placeholder="Emoji..." />
+                                        {errors.emoji && (<p className="error">{errors.emoji.message}</p>)}
                                     </div>
                                 </div>
                             </div>
@@ -256,3 +266,4 @@ const CreatePost = () => {
 }
  
 export default CreatePost;
+

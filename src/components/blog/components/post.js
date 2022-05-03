@@ -1,4 +1,4 @@
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReadMoreReact from "read-more-react/dist/components/ReadMoreReact";
@@ -8,21 +8,35 @@ import { db } from "../../config/firebaseConfig";
 const Post = () => {
 
     const [posts, setPosts] = useState([]);
-    const [modalImage, setModalImage] = useState(null);
+    const [modalPost, setModalPosts] = useState(false);
 
-    const showFullImage = (e) => {
+    const showPostModal = (e) => {
         e.preventDefault();
-        const imgEl = e.target;
-        const imgSrc =  imgEl.getAttribute("src");
+        const target = e.target;
+        const postId = target.parentElement.id;
 
-        setModalImage(imgSrc);
+        posts.map((data) => {
+            const dataId = data.id;
+
+            if(postId === dataId) {
+                setModalPosts(data);
+            }
+        })
     }
 
-    const closeImageModal = (e) => {
-        if(e.target.classList.contains("FullImageModal")) {
-            setModalImage(null);
+    const removePostModal = () => {
+        setModalPosts(null);
+    }
+
+
+    const visited = () => {
+        const countRef = collection(db, "viewCount");
+        const viewed = {
+            viewed: "viewed"
         }
+        addDoc(countRef, viewed);
     }
+
 
     useEffect(() => {
 
@@ -53,12 +67,22 @@ const Post = () => {
                 posts.length  === 0 ? (
                     <p className="noPost">No Post found ! 😒</p>
                 ) : (
-                    <div className="postContainer">
-                        {modalImage && (
-                            <div className="FullImageModal" onClick={(e) => {closeImageModal(e)}}>
-                                <img src={modalImage} alt="" />
+                    <div className="postContainer" onLoad={visited}>
+                        {modalPost && (
+                            <div className="post-modal">
+                                <div className="modal-close-btn" onClick={removePostModal}>
+                                    <div className="modal-close-btn-icon"></div>
+                                </div>
+                                <div className="modal-content">
+                                    <div className="modal-image">
+                                        <img src={modalPost.postImageUrl } alt={`${modalPost.firstName} ${modalPost.lastName}`} />
+                                    </div>
+                                    <div className="modal-bottom">
+                                        <span>{modalPost.emoji || "💔 😔 💔"}</span>
+                                    </div>
+                                </div>
                             </div>
-                        )}
+                        )} 
                         {
                             posts.map((post, index) => (
                                 <div id={post.id} className={"post"} key={post.id} post-data={index}>
@@ -104,9 +128,8 @@ const Post = () => {
                                                     <div className="_f">
                                                         <div className="_g">
                                                             <div className="_h">
-                                                                <a href={`/blog/#${post.id}`}>
-                                                                    <img src={post.postImageUrl} alt={post.firstName} onClick={(e) => showFullImage(e)}/>
-                                                                    {/* <div className="Image-overlay"></div> */}
+                                                                <a id={`${post.id}`} href={`/tanjila/posts/#${post.id}`}>
+                                                                    <img src={post.postImageUrl} alt={post.firstName} onClick={(e) => showPostModal(e)} />
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -115,7 +138,7 @@ const Post = () => {
                                             )}
                                             <div className="postF">
                                                 <div className="f">
-                                                    💔 😔 💔
+                                                    {post.emoji || "💔 😔 💔"}
                                                 </div>
                                             </div>
                                         </div>

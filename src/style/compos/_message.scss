@@ -1,0 +1,73 @@
+.Message {
+    .message-content {
+        padding: 0 0.75rem;
+
+        .title {
+            font-size: 30px;
+            color: #ddd;
+            padding: 0.5rem 0;
+        }
+
+
+        .message-list {
+
+            .Messages {
+                margin-bottom: 20px;
+
+                .message-card {
+                    box-shadow: 0 0 0 1px rgba(221, 221, 221, 0.233);
+                    border-radius: 3px;
+
+                    .message-header {
+                        padding: 0 0.75rem;
+
+                        .message-name-and-time {
+                            padding: 0.75rem 0;
+                            display: flex;
+                            flex-direction: column;
+
+                            .userName {
+                                font-size: 18px;
+                                font-weight: bold;
+                                color: #ccc;
+                            }
+
+                            .userEmail {
+                                font-size: 12px;
+                                color: #777;
+                                padding: 0.2rem 0;
+                            }
+
+                            .create-time {
+                                font-size: 12px;
+                                color: rgba(221, 221, 221, 0.253);
+                            }
+                        }
+                    }
+
+                    .messageBody {
+                        padding: 0 0.75rem;
+
+                        .messageContext {
+                            padding-bottom: 0.75rem;
+
+                            color: #777;
+                        }
+                    }
+                }
+
+            }
+        }
+        
+
+        .read-more-button {
+            display: inline-block;
+            cursor: pointer;
+            color: rgb(0, 68, 255);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
